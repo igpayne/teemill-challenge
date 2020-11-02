@@ -22,7 +22,7 @@ function processRequests($requests)
 # takes a single request as a string, and returns request as an associative array of (name => value) pairs
 function processRequest($request) 
 {
-    $final_request = [];
+    $processed_request = [];
 
     $name_value_pairs = explode(";", $request);
 
@@ -33,10 +33,10 @@ function processRequest($request)
         $name = trim($name_value_split[0]);
         $value = trim($name_value_split[1]);
 
-        $final_request[$name] = $value;
+        $processed_request[$name] = $value;
     }
 
-    return $final_request;
+    return $processed_request;
 }
 
 print_r(processRequests($arr));
