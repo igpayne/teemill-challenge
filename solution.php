@@ -6,7 +6,7 @@ $arr = array(
     "action: Added; quantity: 20; item_code: RNV1; product_name: Gift Voucher; style: Mens; value: £20" 
 );
 
-# takes an array of string requests, and returns an array of associative arrays, representing those requests
+# takes an array of string requests, and returns an array of associative arrays representing those requests
 function processRequests($requests) 
 {
     $processed_requests = [];

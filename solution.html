@@ -1,0 +1,43 @@
+<script>
+
+let arr = 
+[
+    "action: Added; quantity: 1; item_code: RNA1; product_name: Mens Organic T-shirt; colour: White; size: XL",
+    "action: Subtracted; quantity: 7; item_code: RNC1; product_name: Kids Basic T-shirt; colour: Denim Blue; size: 3-4y",
+    "action: Added; quantity: 20; item_code: RNV1; product_name: Gift Voucher; style: Mens; value: £20" 
+]
+
+// takes an array of string requests, and returns the requests as an array of objects representing those requests
+function processRequests(requests) 
+{
+    let processedRequests = [];
+
+    requests.forEach((request) => {
+        processedRequests.push(processRequest(request));
+    });
+
+    return processedRequests;
+}
+
+// takes a string request, and returns the request as an object
+function processRequest(request)
+{
+    let processedRequest = new Object();
+
+    let nameValuePairs = request.split(";");
+
+    nameValuePairs.forEach((nvp) => {
+        let nameValueSplit = nvp.split(":");
+
+        let name = nameValueSplit[0].trim();
+        let value = nameValueSplit[1].trim();
+
+        processedRequest[name] = value;
+    });
+
+    return processedRequest;
+}
+
+document.write(JSON.stringify(processRequests(arr)));
+
+</script>
